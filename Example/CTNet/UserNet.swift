@@ -8,18 +8,15 @@
 
 import Foundation
 import RxSwift
-class UserNetManger:NetBaseManger{
-    
-    enum URL:String{
+class UserNetManger:NetBaseManger {
+    enum URL:String {
         case userInfo = "/ping"
     }
 
-    static func userInfo(usrid:String)->Observable<[String: Any]>{
-        
+    static func userInfo(usrid:String) -> Observable<[String: Any]> {
         return request(url: URL.userInfo.rawValue,
                        method: .post,
                        parameters: ["id":usrid],
                        cacheID: "yesterday")
     }
-    
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 /// 放到基础库中
-extension ViewController{
+extension ViewController {
     /// 字典转模型
     func toModel<T>(_ type: T.Type, value: Any?) -> T? where T: Decodable {
         guard let value = value else { return nil }
@@ -22,7 +22,6 @@ extension ViewController{
         return try? decoder.decode(type, from: data)
     }
 }
-
 
 struct UserInfo:Codable {
     var message:String

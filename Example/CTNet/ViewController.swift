@@ -11,12 +11,10 @@ import RxSwift
 import NSObject_Rx
 import CTNet
 
-
 class ViewController: UIViewController {
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
 //        CTNetConfigure.shared.port = ":8080"
 //        CTNetConfigure.shared.host = "http://192.168.11.147"
 //        CTNetConfigure.shared.timeout = 20
@@ -45,22 +43,14 @@ class ViewController: UIViewController {
 //        } onDisposed: {
 //            print("销毁")
 //        }.disposed(by: rx.disposeBag)
-        
+
         CTNetAPICache.shared.clear()
         CTNetAPICache.shared.set(id: "qqqqwdesq", dict: ["aaaaa":1])
         CTNetAPICache.shared.set(id: "qqqasqscq22", dict: ["aaaaa":2])
-
-
-        
-        
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    
 }
-
