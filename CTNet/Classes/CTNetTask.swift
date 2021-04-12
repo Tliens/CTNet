@@ -106,13 +106,13 @@ public class CTNetTask:Operation {
     }
     /// 网络请求
     func autoRequest() {
-        CTNetLog.log("\n【CTNet】[\(url)][🚀]\n[params:\(parameters)]\n[header:\(httpHeaders)]\n")
+        CTNetLog.log("params:\(parameters)","header:\(httpHeaders)")
         request = session.request(url, method: myMethod, parameters: parameters, encoding: JSONEncoding.default, headers: httpHeaders).responseJSON { [weak self]response in
             guard let self = self else { return }
             switch response.result {
             case .success(let json):
                 //打印JSON数据
-                CTNetLog.log("\n【CTNet】[\(response.request?.url?.absoluteString ?? "")][success✅]\n[response:\(json)]\n")
+                CTNetLog.log("\(response.request?.url?.absoluteString ?? "")","success"," response:\(json)")
                 if let result = json as? [String: Any] {
                     self.netCallBack(result, self.id)
                     if let myCacheID = self.cacheID {
@@ -134,7 +134,7 @@ public class CTNetTask:Operation {
                         self.autoRequest()
                     }
                 } else {
-                    CTNetLog.log("\n【CTNet】[\(response.request?.url?.absoluteString ?? "")][fail❌]\n[error:\(error.localizedDescription)]\n")
+                    CTNetLog.log("\(response.request?.url?.absoluteString ?? "")","fail","error:\(error.localizedDescription)")
                     self.netCallBack(["errMsg":"No connection", "errCode":error.code], self.id)
                 }
             }

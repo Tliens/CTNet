@@ -8,7 +8,7 @@
 import Foundation
 
 public extension Notification.Name {// 接到需要监听的错误码时的通知
-    static let CTNetErrorCodeListener = Notification.Name("com.lfg.notification.CTNetErrorCodeListener")
+    static let CTNetErrorCodeListener = Notification.Name("CTNet.Notification.CTNetErrorCodeListener")
 }
 
 public class CTNet {
